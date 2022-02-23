@@ -1,0 +1,270 @@
+Hands on Array
+======================
+1) Write a Java program to merge two unsorted arrays of differnt lengths?
+package loopsandarrays;
+
+import java.util.Scanner;
+
+public class MergeTwoArray {
+	static void Merge_Array(int arr[],int arr2[],int size,int size2)
+	{
+	    int m_size=size+size2;
+	    int merge_arr[ ]=new int[m_size];
+	    int i=0,k=0,j=0;
+	    while(k<m_size)
+	    {
+	    if(i<size)
+	    {
+	        merge_arr[k]=arr[i];
+	        i++;
+	        k++;
+	    }
+	    if(j<size2)
+	    {
+	        merge_arr[k]=arr2[j];
+	        j++;
+	        k++;
+	    }
+	}
+	int p;
+	System.out.print("After Merge two Array element are:");
+	for(p=0;p<m_size;p++)
+	       {
+		System.out.print(merge_arr[p]+" ");
+	       }
+	}
+	public static void main(String[] args) {
+	  Scanner sc=new Scanner(System.in);
+	  System.out.println("Enter the size of the array:");
+	     int size,j=0;
+	     size=sc.nextInt();
+	     System.out.println("Enter the size of the 2nd array:");
+	     int size2=sc.nextInt();
+
+	     int arr[ ]=new int[size];
+	     int arr2[ ]=new int[size2];
+	  System.out.println("Enter the Element of the array:");
+	      for(j=0;j<size;j++)
+	     {
+	         arr[j]=sc.nextInt();
+	     }
+	      
+	      System.out.println("Enter the Element of the array:");
+	      for(j=0;j<size2;j++)
+	     {
+	         arr2[j]=sc.nextInt();
+	     }
+	     
+	      Merge_Array(arr,arr2,size,size2);
+	     sc.close();
+	 }
+	}
+
+2)  write a Java program to remove an element by taking an index from the user?
+package loopsandarrays;
+	 
+	import java.util.Arrays;
+	 
+	class RemoveElement{
+	 
+	   
+	    public static int[] removeTheElement(int[] arr, int index)
+	    {
+	 
+	        
+	        if (arr == null || index < 0
+	            || index >= arr.length) {
+	 
+	            return arr;
+	        }
+
+	        int[] anotherArray = new int[arr.length - 1];
+	 
+	        for (int i = 0, k = 0; i < arr.length; i++) {
+	 
+	            if (i == index) {
+	                continue;
+	            }
+
+	            anotherArray[k++] = arr[i];
+	        }
+	 
+	        return anotherArray;
+	    }
+	 
+	    public static void main(String[] args)
+	    {
+	 
+	        int[] arr = { 1, 2, 3, 4, 5 };
+	 
+	        System.out.println("Original Array: "
+	                           + Arrays.toString(arr));
+	 
+	        int index = 2;
+	        System.out.println("Index to be removed: " + index);
+	        arr = removeTheElement(arr, index);
+	        System.out.println("Resultant Array: "
+	                           + Arrays.toString(arr));
+	    }
+	}
+
+
+3) Write  a Java Program to count number of duplicated values in
+a) integer array
+
+
+package loopsandarrays;
+import java.util.*;
+public class DuplicateValue {
+	   
+	    public static void main(String[] args) {  
+	      Scanner sc = new Scanner(System.in);
+	      System.out.println("Enter the size of array: ");
+	      int n = sc.nextInt();
+	      int arr[] = new int[n];
+	      int occur[] = new int[n];
+	      Arrays.fill(occur, 0);
+	      System.out.println("Enter " +n+ " array elements between 0 to "+(n-1));
+	      for(int i=0; i<n; i++) {
+	         arr[i] = sc.nextInt();
+	         occur[arr[i]]++;
+	      }
+	      for(int i=0; i<n; i++) {
+	          if(occur[i]>1)
+	            System.out.println(i +" is occurs "+ occur[i] + " times");
+	      }
+	 }
+	}   
+
+3) b) char array (create the char array in lower case)
+
+package loopsandarrays;
+
+public class DuplicateChar {
+
+	    static final int MAX_CHAR = 256;
+	 
+	    static void DuplicateChar(String str)
+	    {
+	         
+	        
+	        int count[] = new int[MAX_CHAR];
+	 
+	        int len = str.length();
+	 
+	        for (int i = 0; i < len; i++)
+	            count[str.charAt(i)]++;
+	 
+	        char ch[] = new char[str.length()];
+	        for (int i = 0; i < len; i++) {
+	            ch[i] = str.charAt(i);
+	            int find = 0;
+	            for (int j = 0; j <= i; j++) {
+	 
+	                if (str.charAt(i) == ch[j])
+	                    find++;
+	            }
+	 
+	            if (find == 1)
+	                System.out.println(
+	                    "Number of Occurrence of "
+	                    + str.charAt(i)
+	                    + " is:" + count[str.charAt(i)]);
+	        }
+	    }
+	   
+	    public static void main(String[] args)
+	    {
+	        String str = "geeksforgeeks";
+	        DuplicateChar(str);
+	    }
+	}
+
+
+
+
+4) Write a Java Program to find sum of numbers 
+a) even index
+b) odd index
+
+package loopsandarrays;
+
+import java.util.Scanner;
+
+public class SumOfNumbers {
+	 public static void main(String[] args) 
+	    {
+	        int n, sumEven = 0, sumOdd = 0;
+	        Scanner s = new Scanner(System.in);
+	        System.out.print("Enter the number of elements in array:");
+	        n = s.nextInt();
+	        int[] a = new int[n];
+	        System.out.println("Enter the elements of the array:");
+	        for(int i = 0; i < n; i++)
+	        {
+	            a[i] = s.nextInt();
+	        }
+	        for(int i = 0; i < n; i++)
+	        {
+	            if(a[i] % 2 == 0)
+	            {
+	            	sumEven = sumEven + a[i];
+	            }
+	            else
+	            {
+	            	sumOdd = sumOdd + a[i];
+	            }
+	        }
+	        System.out.println("Sum of Even Numbers:"+sumEven);
+	        System.out.println("Sum of Odd Numbers:"+sumOdd);
+	    }
+
+}
+
+
+
+5) Write a program to print array elements in the reverse order using swapping method?
+Hint: take even number array
+input: 20 30 40 50 60 70
+output: 70 60 50 40 30 20
+
+                                                      package loopsandarrays;
+                                                      import java.util.Scanner;
+                                                      public class ReverseOrder {
+	
+		
+
+			 public static void main(String[] args) 
+			 {
+			  Scanner sc=new Scanner(System.in);
+			  System.out.println("Enter the size of the array:");
+			     int size;
+			     size=sc.nextInt();
+			     int arr[ ]=new int[size];
+			     int j=0,i,temp,k,temp2;
+			  System.out.println("Enter the Element of the array:");
+			      while(j<size)
+			     {
+			         arr[j]=sc.nextInt();
+			         j++;
+			     }
+			      temp=size;
+			         while(temp>=0)
+			         {
+			             for(k=0;k<temp-1;k++)
+			             {
+			                 temp2=arr[k];
+			                 arr[k]=arr[k+1];
+			                 arr[k+1]=temp2;
+			             }
+			             temp--;
+			         }
+			         System.out.println("After reversing array is :");
+			         for(i=0;i<size;i++)
+			        {
+			          System.out.print(arr[i]+" ");
+			         }
+                                                               sc.close();
+                                                               }
+                                                               }
+
